@@ -61,7 +61,7 @@ function ExtractionLauncher() {
         const script = iframeDoc.createElement("script");
         // script.src = 'https://dpod-aws-s3.s3.us-east-1.amazonaws.com/web-plugins/ameya-extraction/sfs/test/ameya-extraction.js';
         // script.src = 'https://ameya-extraction.ameya.ai';
-        script.src = 'https://ameya-extraction.ameya.ai'
+        script.src = 'https://ameya-extraction-plugin.ameya.ai'
 
         script.onload = () => {
             iframeconfig.onCancel = () => {
