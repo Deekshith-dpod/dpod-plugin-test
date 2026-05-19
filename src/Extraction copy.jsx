@@ -1,17 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const TRAINING_PLUGIN_URL = 'https://extraction-plugin-test.ameya.ai';
-function ExtractionLauncher({ setPreviewMode }) {
+const TRAINING_PLUGIN_URL = '';
+
+function ExtractionLauncher() {
 
     const iframeRef = useRef(null);
     const [pluginReady, setPluginReady] = useState(false);
 
     const pluginPayload = {
         plugin_type: "sfs_extraction_plugin",
-        appflyte_backend_url: "https://appflyte-backend.smartfoodsafe.net",
-        appflyte_agent_api_token: "e50ae690-ef1b-405e-9424-926b6621a81b",
-        appflyte_project_id: "46a355ef-cbf3-4be8-9887-4ded1b1302c8",
-        extraction_task_id: "aec9e5d9-e38f-4800-85b9-112d14264fbc"
+        appflyte_backend_url: "",
+        appflyte_agent_api_token: "",
+        appflyte_project_id: "",
+        extraction_task_id: ""
     };
 
     useEffect(() => {
@@ -22,7 +23,6 @@ function ExtractionLauncher({ setPreviewMode }) {
             }
             if (event.data?.type === "PLUGIN_BACK_CLICKED") {
                 // hanlde your on back functionlity
-                setPreviewMode(false);
             }
         };
         window.addEventListener("message", handleMessage);

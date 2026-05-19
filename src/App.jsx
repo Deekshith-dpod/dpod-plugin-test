@@ -2,36 +2,19 @@ import { useState } from 'react'
 import ExtractionLauncher from './Extraction'
 import ChatBotLauncher from './ChatBot'
 import "./app.css"
+import ExtractionLaunch from './OldPlugin'
+import ExtractionTraining from './New'
 
 function App() {
   const [page, setPage] = useState('extraction')
-
-  const navBtn = (id, label) => (
-    <button
-      onClick={() => setPage(id)}
-      style={{
-        padding: '6px 12px',
-        marginRight: 8,
-        border: 'none',
-        borderRadius: 4,
-        cursor: 'pointer',
-        background: page === id ? '#0B51C5' : '#DEDEDE',
-        color: page === id ? '#fff' : '#000',
-      }}
-    >
-      {label}
-    </button>
-  )
+  const [previewMode, setPreviewMode] = useState(false)
 
   return (
     <div>
-      {/* <div style={{ padding: 8, background: '#F3F5F7', borderBottom: '1px solid #DEDEDE' }}>
-        {navBtn('extraction', 'Extraction')}
-        {navBtn('chatbot', 'ChatBot')}
-      </div> */}
-      {/* {page === 'extraction' ? <ExtractionLauncher /> : <ChatBotLauncher />} */}
-      <ExtractionLauncher />
-      <ChatBotLauncher />
+      {!previewMode && <button onClick={() => setPreviewMode(true)}>Click</button>}
+      {previewMode && <ExtractionLauncher previewMode={previewMode} setPreviewMode={setPreviewMode} />}
+      {/* <ExtractionLaunch /> */}
+      {/* <ChatBotLauncher /> */}
     </div>
   )
 }
