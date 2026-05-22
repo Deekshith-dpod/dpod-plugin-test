@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-function ExtractionLaunch() {
+const TRAINING_PLUGIN_URL = 'https://ameya-extraction.ameya.ai' //sfs-prod
+
+function ExtractionPluginSFSProd({ setPreviewMode }) {
 
     const iframeRef = useRef(null);
     const [pluginReady, setPluginReady] = useState(false);
@@ -44,27 +46,9 @@ function ExtractionLaunch() {
             appflyte_agent_api_token: "e50ae690-ef1b-405e-9424-926b6621a81b",
             appflyte_project_id: "46a355ef-cbf3-4be8-9887-4ded1b1302c8",
             extraction_task_id: "aec9e5d9-e38f-4800-85b9-112d14264fbc",
-            onCancel: () => console.log("hi"),
-            onSave: () => console.log("hi")
+            onCancel: () => setPreviewMode(),
+            onSave: () => setPreviewMode()
         };
-
-        //                 "project_id": "46a355ef-cbf3-4be8-9887-4ded1b1302c8",
-        // token"  e50ae690-ef1b-405e-9424-926b6621a81b             
-        //    "document_type": "8c9c8acb-ccc4-4fab-b3e1-35cffbfe97c1"
-
-        //         "organization_id": "9a7f2790-46e1-41dc-8bfd-4e2e750676b5",
-
-        //  "schema": "ed8d7dde-ba08-493c-9b58-f2da634d00ed",
-
-        // tasked: aec9e5d9-e38f-4800-85b9-112d14264fbc
-
-
-
-        // "tags": {
-        //                     "clientId": "5f816b3d3250d83074a82c32",
-        //                     "documentTypeId": "8c9c8acb-ccc4-4fab-b3e1-35cffbfe97c1",
-        //                     "projectId": "46a355ef-cbf3-4be8-9887-4ded1b1302c8",
-        //                 }
 
         const theme = {
             palette: {
@@ -97,9 +81,7 @@ function ExtractionLaunch() {
         iframeDoc.head.appendChild(link);
 
         const script = iframeDoc.createElement("script");
-        // script.src = 'https://dpod-aws-s3.s3.us-east-1.amazonaws.com/web-plugins/ameya-extraction/sfs/test/ameya-extraction.js';
-        // script.src = 'https://ameya-extraction.ameya.ai';
-        script.src = 'https://ameya-extraction-plugin.ameya.ai'
+        script.src = TRAINING_PLUGIN_URL
 
         script.onload = () => {
             iframeconfig.onCancel = () => {
@@ -127,4 +109,4 @@ function ExtractionLaunch() {
         </div>
     )
 }
-export default ExtractionLaunch;
+export default ExtractionPluginSFSProd;

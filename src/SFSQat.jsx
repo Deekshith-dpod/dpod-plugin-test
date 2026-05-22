@@ -1,17 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const TRAINING_PLUGIN_URL = 'https://extraction-plugin-test.ameya.ai';
-function ExtractionLauncher({ setPreviewMode }) {
+// const TRAINING_PLUGIN_URL = 'https://extraction-plugin-test.ameya.ai';
+const TRAINING_PLUGIN_URL = 'https://ameya-extraction-plugin.ameya.ai' //sfs-qat
+
+function ExtractionPluginSFSQat({ setPreviewMode }) {
 
     const iframeRef = useRef(null);
     const [pluginReady, setPluginReady] = useState(false);
 
+    // const pluginPayload = {
+    //     plugin_type: "sfs_extraction_plugin",
+    //     appflyte_backend_url: "https://appflyte-backend.smartfoodsafe.net",
+    //     appflyte_agent_api_token: "e50ae690-ef1b-405e-9424-926b6621a81b",
+    //     appflyte_project_id: "46a355ef-cbf3-4be8-9887-4ded1b1302c8",
+    //     extraction_task_id: "aec9e5d9-e38f-4800-85b9-112d14264fbc"
+    // };
+
     const pluginPayload = {
         plugin_type: "sfs_extraction_plugin",
-        appflyte_backend_url: "https://appflyte-backend.smartfoodsafe.net",
-        appflyte_agent_api_token: "e50ae690-ef1b-405e-9424-926b6621a81b",
-        appflyte_project_id: "46a355ef-cbf3-4be8-9887-4ded1b1302c8",
-        extraction_task_id: "aec9e5d9-e38f-4800-85b9-112d14264fbc"
+        appflyte_backend_url: "https://backend.sandbox.ameya.ai",
+        appflyte_agent_api_token: "184451e7-bb82-4ce1-b833-4d4032768ee9",
+        appflyte_project_id: "ae7e5874-edd1-4cbd-8ee6-b85119a29abf",
+        extraction_task_id: "594f87cc-1098-449b-a165-99fa8ae4f6fb",
     };
 
     useEffect(() => {
@@ -22,7 +32,7 @@ function ExtractionLauncher({ setPreviewMode }) {
             }
             if (event.data?.type === "PLUGIN_BACK_CLICKED") {
                 // hanlde your on back functionlity
-                setPreviewMode(false);
+                setPreviewMode();
             }
         };
         window.addEventListener("message", handleMessage);
@@ -46,4 +56,4 @@ function ExtractionLauncher({ setPreviewMode }) {
         </div>
     )
 }
-export default ExtractionLauncher;
+export default ExtractionPluginSFSQat;
