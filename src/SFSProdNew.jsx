@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 // const TRAINING_PLUGIN_URL = 'https://extraction-plugin-test.ameya.ai';
-const TRAINING_PLUGIN_URL = 'https://ameya-extraction-plugin.ameya.ai' //sfs-qat
+const TRAINING_PLUGIN_URL = 'https://ameya-extraction-sfs-plugin.ameya.ai' //sfs-Prod
 
-function ExtractionPluginSFSQat({ setPreviewMode }) {
+function ExtractionPluginSFSProdNew({ setPreviewMode }) {
 
     const iframeRef = useRef(null);
     const [pluginReady, setPluginReady] = useState(false);
@@ -84,4 +84,4 @@ function ExtractionPluginSFSQat({ setPreviewMode }) {
         </div>
     )
 }
-export default ExtractionPluginSFSQat;
+export default ExtractionPluginSFSProdNew;

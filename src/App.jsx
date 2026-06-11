@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import "./app.css"
 
-import ChatBotLauncher from './ChatBot'
+import ChatBotLauncher from './ChatBot';
+
 import ExtractionPluginSFSQat from './SFSQat';
 import ExtractionPluginSFSProd from './SFSProd'
+import ExtractionPluginSFSProdNew from './SFSProdNew';
 
 function App() {
 
@@ -17,6 +19,7 @@ function App() {
           <button onClick={() => setView('chat')}>Chat</button>
           <button onClick={() => setView('qat')}>SFS QAT</button>
           <button onClick={() => setView('prod')}>SFS PROD</button>
+          <button onClick={() => setView('new-prod')}>SFS NEW PROD</button>
         </div>
       )}
 
@@ -31,6 +34,13 @@ function App() {
 
       {view === 'prod' && (
         <ExtractionPluginSFSProd
+          previewMode={true}
+          setPreviewMode={() => setView('menu')}
+        />
+      )}
+
+      {view === 'new-prod' && (
+        <ExtractionPluginSFSProdNew
           previewMode={true}
           setPreviewMode={() => setView('menu')}
         />
