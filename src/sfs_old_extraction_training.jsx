@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-const TRAINING_PLUGIN_URL = 'https://ameya-extraction.ameya.ai' //sfs-prod
+const TRAINING_PLUGIN_URL = 'https://ameya-extraction.ameya.ai' // old plugin
 
-function ExtractionPluginSFSProd({ setPreviewMode }) {
+function SFSOldExtractionTraining({ setPreviewMode }) {
 
     const iframeRef = useRef(null);
     const [pluginReady, setPluginReady] = useState(false);
@@ -109,4 +109,4 @@ function ExtractionPluginSFSProd({ setPreviewMode }) {
         </div>
     )
 }
-export default ExtractionPluginSFSProd;
+export default SFSOldExtractionTraining;

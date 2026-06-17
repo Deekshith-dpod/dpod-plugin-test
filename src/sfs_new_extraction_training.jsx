@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-// const TRAINING_PLUGIN_URL = 'https://extraction-plugin-test.ameya.ai';
 const TRAINING_PLUGIN_URL = 'https://ameya-extraction-plugin.ameya.ai' //sfs-qat
+// const TRAINING_PLUGIN_URL = 'https://ameya-extraction-sfs-plugin.ameya.ai' //sfs-Prod
 
-function ExtractionPluginSFSQat({ setPreviewMode }) {
+function SFSNewExtractionTraining({ setPreviewMode }) {
 
     const iframeRef = useRef(null);
     const [pluginReady, setPluginReady] = useState(false);
@@ -44,13 +44,23 @@ function ExtractionPluginSFSQat({ setPreviewMode }) {
     //     "extraction_task_id": "57394fa5-4be4-4f4e-8111-beb9fa47a0da"
     // }
 
+    // {
+    //     "plugin_type": "sfs_extraction_plugin",
+    //     "appflyte_backend_url": "https://appflyte-backend.smartfoodsafe.net",
+    //     "appflyte_agent_api_token": "510017cc-ef2d-4aa1-93c6-d63a074d17e8",
+    //     "appflyte_project_id": "ac6022f9-fb0f-4952-a72b-eb277f5da02c",
+    //     "extraction_task_id": "91796c95-6720-4157-9712-8f3ddbaf074e"
+    // }
+
     {
         "plugin_type": "sfs_extraction_plugin",
-        "appflyte_backend_url": "https://appflyte-backend.smartfoodsafe.net",
-        "appflyte_agent_api_token": "510017cc-ef2d-4aa1-93c6-d63a074d17e8",
-        "appflyte_project_id": "ac6022f9-fb0f-4952-a72b-eb277f5da02c",
-        "extraction_task_id": "91796c95-6720-4157-9712-8f3ddbaf074e"
+        "appflyte_backend_url": "https://appflyte-backend.ameya.smartfoodsafe.com",
+        "appflyte_agent_api_token": "255c9715-e5a3-458a-afd0-2be51d21cbd7",
+        "appflyte_project_id": "031b3a12-d04b-46b4-8418-f13ed3422834",
+        "extraction_task_id": "0d09cd9b-5489-4231-9138-6b8fc4abe3cc"
     }
+
+
 
     useEffect(() => {
         const handleMessage = (event) => {
@@ -84,4 +94,4 @@ function ExtractionPluginSFSQat({ setPreviewMode }) {
         </div>
     )
 }
-export default ExtractionPluginSFSQat;
+export default SFSNewExtractionTraining;

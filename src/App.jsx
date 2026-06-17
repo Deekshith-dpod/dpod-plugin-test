@@ -2,10 +2,10 @@ import { useState } from 'react'
 import "./app.css"
 
 import ChatBotLauncher from './ChatBot';
+import DpodNewExtractionTraining from './dpod_new_extraction_training';
+import SFSNewExtractionTraining from './sfs_new_extraction_training';
+import SFSOldExtractionTraining from './sfs_old_extraction_training';
 
-import ExtractionPluginSFSQat from './SFSQat';
-import ExtractionPluginSFSProd from './SFSProd'
-import ExtractionPluginSFSProdNew from './SFSProdNew';
 
 function App() {
 
@@ -17,30 +17,30 @@ function App() {
       {view === 'menu' && (
         <div>
           <button onClick={() => setView('chat')}>Chat</button>
-          <button onClick={() => setView('qat')}>SFS QAT</button>
-          <button onClick={() => setView('prod')}>SFS PROD</button>
-          <button onClick={() => setView('new-prod')}>SFS NEW PROD</button>
+          <button onClick={() => setView('dpod_new')}>Dpod New</button>
+          <button onClick={() => setView('sfs_old')}>SFS Old</button>
+          <button onClick={() => setView('sfs_new')}>SFS NEW</button>
         </div>
       )}
 
       {view === 'chat' && (<ChatBotLauncher />)}
 
-      {view === 'qat' && (
-        <ExtractionPluginSFSQat
+      {view === 'dpod_new' && (
+        <DpodNewExtractionTraining
           previewMode={true}
           setPreviewMode={() => setView('menu')}
         />
       )}
 
-      {view === 'prod' && (
-        <ExtractionPluginSFSProd
+      {view === 'sfs_old' && (
+        <SFSOldExtractionTraining
           previewMode={true}
           setPreviewMode={() => setView('menu')}
         />
       )}
 
-      {view === 'new-prod' && (
-        <ExtractionPluginSFSProdNew
+      {view === 'sfs_new' && (
+        <SFSNewExtractionTraining
           previewMode={true}
           setPreviewMode={() => setView('menu')}
         />
